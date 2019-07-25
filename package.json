@@ -1,0 +1,19 @@
+{
+  "name": "rentalinks",
+  "version": "1.0.0",
+  "description": "Backend for RentaLinks",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RohithPrakash/rentalinks.git"
+  },
+  "author": "Rohith P",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RohithPrakash/rentalinks/issues"
+  },
+  "homepage": "https://github.com/RohithPrakash/rentalinks#readme"
+}

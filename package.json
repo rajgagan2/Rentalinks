@@ -2,10 +2,10 @@
     "name": "rentalinks",
     "version": "1.0.0",
     "description": "Backend for RentaLinks",
-    "main": "index.js",
+    "main": "server.js",
     "scripts": {
-        "dev": "nodemon index.js",
-        "prod": "node index.js"
+        "dev": "nodemon server.js",
+        "prod": "node server.js"
     },
     "repository": {
         "type": "git",

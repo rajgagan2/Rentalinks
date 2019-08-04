@@ -1,11 +1,14 @@
 const router = require("express").Router();
 const passport = require("passport");
 
+// Load input validation
+const validateAddCarsInput = require("../../validation/addCars");
+
 // Load Car model
 const Car = require("../../models/cars");
 
-// @route POST cars/getCars
-// @desc get cars
+// @route GET cars/getCars
+// @desc get cars details
 // @access Public
 router.get("/getCars", (req, res) => {
   // Find user by email
@@ -18,6 +21,43 @@ router.get("/getCars", (req, res) => {
     // Get cars
     if (cars) {
       return res.status(404).json({ cars: cars });
+    }
+  });
+});
+
+// @route POST users/register
+// @desc Register user
+// @access Public
+router.post("/addCars", (req, res) => {
+  // Form validation
+
+  const { errors, isValid } = validateAddCarsInput(req.body);
+
+  // Check validation
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
+  User.findOne({ registration: req.body.registration }).then(user => {
+    if (user) {
+      return res
+        .status(400)
+        .json({ registration: "This vehicle already exists in the database" });
+    } else {
+      const newCar = new Car({
+        category: req.body.category,
+        brand: req.body.brand,
+        model: req.body.model,
+        registration: req.body.registration,
+        price: req.body.price,
+        location: req.body.location,
+        available: req.body.available
+      });
+
+      newCar
+        .save()
+        .then(car => res.status(201).json(car))
+        .catch(err => console.log(err));
     }
   });
 });

@@ -1,5 +1,11 @@
 const mongoose = require("mongoose");
-var autoIncrement = require("mongoose-auto-increment");
+const autoIncrement = require("mongoose-auto-increment");
+const db = require("../config/keys").mongoURI;
+
+const connection = mongoose.createConnection(db);
+autoIncrement.initialize(connection, { useNewUrlParser: true });
+console.log("Autoincrement connection established");
+
 const Schema = mongoose.Schema;
 
 // Create Schema
@@ -8,7 +14,15 @@ const carSchema = new Schema({
     type: String,
     required: true
   },
-  name: {
+  brand: {
+    type: String,
+    required: true
+  },
+  model: {
+    type: String,
+    required: true
+  },
+  registration: {
     type: String,
     required: true
   },
@@ -22,7 +36,7 @@ const carSchema = new Schema({
   },
   available: {
     type: Boolean,
-    required: true
+    default: true
   }
 });
 

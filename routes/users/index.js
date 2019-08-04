@@ -94,7 +94,7 @@ router.post("/login", (req, res) => {
           },
           (err, token) => {
             res.status(302).json({
-              token: "Bearer " + token
+              token: token
             });
           }
         );

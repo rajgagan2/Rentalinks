@@ -15,18 +15,18 @@ router.get("/getCars", (req, res) => {
   Car.find().then(cars => {
     // Check if cars exists
     if (!cars) {
-      return res.status(404).json({ carsNotFound: "Cars not found" });
+      return res.status(404).json({ noCarsFound: "No cars found" });
     }
 
     // Get cars
     if (cars) {
-      return res.status(404).json({ cars: cars });
+      return res.status(200).json({ cars: cars });
     }
   });
 });
 
-// @route POST users/register
-// @desc Register user
+// @route POST cars/addCars
+// @desc add cars to database
 // @access Public
 router.post("/addCars", (req, res) => {
   // Form validation
@@ -38,11 +38,11 @@ router.post("/addCars", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  User.findOne({ registration: req.body.registration }).then(user => {
-    if (user) {
-      return res
-        .status(400)
-        .json({ registration: "This vehicle already exists in the database" });
+  User.findOne({ registration: req.body.registration }).then(car => {
+    if (!car) {
+      return res.status(400).json({
+        carAlreadyExists: "This vehicle already exists in the database"
+      });
     } else {
       const newCar = new Car({
         category: req.body.category,

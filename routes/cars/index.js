@@ -39,7 +39,7 @@ router.post("/addCars", (req, res) => {
   }
 
   User.findOne({ registration: req.body.registration }).then(car => {
-    if (!car) {
+    if (car) {
       return res.status(400).json({
         carAlreadyExists: "This vehicle already exists in the database"
       });

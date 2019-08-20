@@ -11,6 +11,9 @@ module.exports = function validateAddCarsInput(data) {
   data.registration = !isEmpty(data.registration) ? data.registration : "";
   data.price = !isEmpty(data.price) ? data.price : "";
   data.location = !isEmpty(data.location) ? data.location : "";
+  data.seats = !isEmpty(data.seats) ? data.seats : "";
+  data.transmission = !isEmpty(data.transmission) ? data.transmission : "";
+  data.excessCost = !isEmpty(data.excessCost) ? data.excessCost : "";
 
   // Category checks
   if (Validator.isEmpty(data.category)) {
@@ -30,11 +33,23 @@ module.exports = function validateAddCarsInput(data) {
   }
   // Price checks
   if (Validator.isEmpty(data.price)) {
-    errors.price = "Brand field is required";
+    errors.price = "Price is required";
   }
   // Location checks
   if (Validator.isEmpty(data.location)) {
-    errors.location = "Category is required";
+    errors.location = "Location is required";
+  }
+  // seats checks
+  if (Validator.isEmpty(data.seats)) {
+    errors.seats = "Number of seats is required";
+  }
+  // transmission checks
+  if (Validator.isEmpty(data.transmission)) {
+    errors.transmission = "Transmission type is required";
+  }
+  // excessCost checks
+  if (Validator.isEmpty(data.excessCost)) {
+    errors.excessCost = "Excess cost is required";
   }
 
   return {

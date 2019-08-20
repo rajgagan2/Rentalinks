@@ -15,12 +15,12 @@ router.get("/getCars", (req, res) => {
   Car.find().then(cars => {
     // Check if cars exists
     if (!cars) {
-      return res.status(404).json({ noCarsFound: "No cars found" });
+      return res.json({ noCarsFound: "No cars found" });
     }
 
     // Get cars
     if (cars) {
-      return res.status(200).json({ cars: cars });
+      return res.status(200).json({ cars: cars, success: true });
     }
   });
 });
@@ -51,7 +51,10 @@ router.post("/addCars", (req, res) => {
         registration: req.body.registration,
         price: req.body.price,
         location: req.body.location,
-        available: req.body.available
+        available: req.body.available,
+        seats: req.body.seats,
+        transmission: req.body.transmission,
+        excessCost: req.body.excessCost
       });
 
       newCar

@@ -37,6 +37,19 @@ const carSchema = new Schema({
   available: {
     type: Boolean,
     default: true
+  },
+  seats: {
+    type: Number,
+    required: true
+  },
+  transmission: {
+    type: String,
+    required: true,
+    enum: ["automatic", "manual"]
+  },
+  excessCost: {
+    type: Number,
+    required: true
   }
 });
 

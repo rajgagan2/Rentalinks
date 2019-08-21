@@ -11,6 +11,11 @@ const validateLoginInput = require("../../validation/login");
 // Load User model
 const User = require("../../models/users");
 
+//Register form
+router.get("/register", function(req,res){
+  res.render("register");
+});
+
 // @route POST users/register
 // @desc Register user
 // @access Public
@@ -47,8 +52,14 @@ router.post("/register", (req, res) => {
             .catch(err => console.log(err));
         });
       });
+      res.send("registered!!!");
     }
   });
+});
+
+//Login form
+router.get("/login", function(req,res){
+  res.render("login");
 });
 
 // @route POST users/login
@@ -98,7 +109,9 @@ router.post("/login", (req, res) => {
             });
           }
         );
+        res.send("user matched");
       } else {
+        res.send("incorrect password");
         return res
           .status(400)
           .json({ passwordincorrect: "Password incorrect" });

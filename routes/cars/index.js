@@ -6,6 +6,9 @@ const validateAddCarsInput = require("../../validation/addCars");
 
 // Load Car model
 const Car = require("../../models/cars");
+// Car.collection.drop(function(err){
+//   console.log("db dropped");
+// });
 
 // @route GET cars/getCars
 // @desc get cars details
@@ -23,6 +26,11 @@ router.get("/getCars", (req, res) => {
       return res.status(200).json({ cars: cars, success: true });
     }
   });
+});
+
+//Add cars GET route
+router.get("/addCars", function(req,res){
+  res.render("./client-car-registration/carRegistration");
 });
 
 // @route POST cars/addCars

@@ -1,0 +1,101 @@
+<div class="wrapper">
+   <!-- Sidebar  -->
+   <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Bootstrap Sidebar</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li class="border">
+                <p>Starting Point</p>
+                <p class="sub-head">Your starting point is Koramangala</p>
+            </li>
+            
+            <li class="mt-4 border">
+                <div class="row">
+                    <div class="col">
+                        <p class="sub-head text-center">PICK UP</p>
+                        <p class="text-center mb-0">08th June</p>
+                        <p class="sub-head text-center">04:00 PM</p>
+
+                    </div>
+                    <div class="col">
+                        <p class="sub-head text-center">DROP OFF</p>
+                        <p class="text-center mb-0">10th June</p>
+                        <p class="sub-head text-center">04:00 PM</p>
+                    </div>
+                </div>
+            </li>
+            <li class="mt-4 border">
+                <p>Sorty By</p>
+                <form >
+                    <input type="radio" name="gender" value="low to high" checked>Low to high<br>
+                    <input type="radio" name="gender" value="high to low">High to low<br>
+                    <input type="radio" name="gender" value="distance">Distance  
+                </form> 
+            </li>
+            <li class="mt-4">
+                <p class="mb-0 px-0">CAR GROUP</p>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle border">CHOOSE A CAR GROUP</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="#">HatchBack</a>
+                    </li>
+                    <li>
+                        <a href="#">Sedan</a>
+                    </li>
+                    <li>
+                        <a href="#">SUV</a>
+                    </li>
+                    <li>
+                        <a href="#">ETC</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="mt-4">
+                <p class="mb-0 px-0">FUEL</p>
+                <div class="row border">
+                    <div class="col">
+                        <p class="text-center sub-head mb-0 ">With Fuel</p>
+
+                    </div>
+                    <div class="col">
+                        <p class="text-center sub-head mb-0 ">Without Fuel</p>
+                    </div>
+                </div>
+            </li>
+            <li class="mt-4">
+                <p class="mb-0 px-0">TRANSMISSION</p>
+                <div class="row border">
+                    <div class="col">
+                        <p class="text-center sub-head mb-0 ">AUTOMATIC</p>
+
+                    </div>
+                    <div class="col">
+                        <p class="text-center sub-head mb-0 ">MANUAL</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container p-0">
+        <% cars.forEach(function(cars){ %>
+        <div class="row border m-2">
+            <div class="col-2">
+                <img src="/images/48-512.png" alt="">
+            </div>
+            <div class="col-6">
+                <p><%= cars.brand %> <%= cars.model %></p>
+            </div>
+            <div class="col-2">
+                <p>Hello</p>
+            </div>
+            <div class="col-2">
+                <p>Hello</p>
+            </div>       
+        </div>
+        <% }) %>
+    </div>
+    
+</div>

@@ -10,6 +10,12 @@ const routes = require("./routes");
 const app = express();
 app.use(cors());
 
+//routerconfig
+app.set("view engine", "ejs");
+
+//stylesheets
+app.use(express.static(__dirname + "/public"));
+
 // Bodyparser middleware
 app.use(
   bodyParser.urlencoded({

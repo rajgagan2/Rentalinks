@@ -87,12 +87,31 @@
             </div>
             <div class="col-6">
                 <p><%= cars.brand %> <%= cars.model %></p>
+                <div class="row border-bottom">
+                    <div class="col-3">
+                        <p><%=cars.seats%>-Seater</p>
+                    </div>
+                    <div class="col-2">
+                        <p><%=cars.transmission%></p>
+                    </div>
+                    <div class="col-2">
+                        <p>Petrol</p>
+                    </div>
+                    <div class="col-2">
+                        <p>3-bags</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <p>Pick-Up Location : <%= cars.location %></p>
+                </div>
             </div>
             <div class="col-2">
                 <p>Hello</p>
             </div>
             <div class="col-2">
-                <p>Hello</p>
+                <p>XYZ CARS</p>
+                <p><%=cars.price%>Rs/Day</p>
+                <p><%=cars.excessCost%>Rs/km</p>
             </div>       
         </div>
         <% }) %>

@@ -6,7 +6,7 @@
 
         <!-- Form -->
         <div class="container">
-            <form>
+            <form action="/products" method="post">
                 <div class="form-group">
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-secondary active" id="remove-shadow">
@@ -26,16 +26,16 @@
                                   <input type="text" class="form-control" placeholder="Last name">
                                 </div>
                                 <div class="col-4 col-sm-2 px-0 ">
-                                        <input type="text" class="form-control" placeholder="Last name">
+                                        <input type="date" class="form-control" name="pickDate" placeholder="Pick-up Date" required>
                                 </div>
                                 <div class="col-4 col-sm-2 px-0 ">
-                                        <input type="text" class="form-control" placeholder="Last name">
+                                        <input type="time" class="form-control" name="pickTime" placeholder="Pick-up Time" required>
                                 </div>
                                 <div class="col-4 col-sm-2 px-0 ">
-                                        <input type="text" class="form-control" placeholder="Last name">
+                                        <input type="date" class="form-control" name="dropDate" placeholder="Drop-off Date" required>
                                 </div>
                                 <div class="col-4 col-sm-2 px-0 ">
-                                        <input type="text" class="form-control" placeholder="Last name">
+                                        <input type="time" class="form-control" name="dropTime" placeholder="Drop-off Time" required>
                                 </div>
                             </div>
                </div>

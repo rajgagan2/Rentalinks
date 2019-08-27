@@ -10,9 +10,12 @@ router.post("/products",function(req,res){
         pickDate: moment(req.body.pickDate).format("Do MMM"),
         pickTime: moment(req.body.pickTime, "HH:mm:ss").format("hh[:]mm a"),
         dropDate: moment(req.body.dropDate).format("Do MMM"),
-        dropTime: moment(req.body.dropTime, "HH:mm:ss").format("hh[:]mm a")
+        dropTime: moment(req.body.dropTime, "HH:mm:ss").format("hh[:]mm a"),
+        location: req.body.location
     };
-    console.log(data.bookingHours);
+    console.log(data.bookingHours,data.location);
+    console.log(req.body);
+
     Car.find().then(cars =>{
         if (!cars) {
             return res.status(404).json({ noCarsFound: "No cars found" });

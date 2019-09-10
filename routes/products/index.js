@@ -13,8 +13,10 @@ router.post("/products",function(req,res){
         dropTime: moment(req.body.dropTime, "HH:mm:ss").format("hh[:]mm a"),
         location: req.body.location
     };
-    console.log(data.bookingHours,data.location);
-    console.log(req.body);
+    
+
+    // console.log(data.bookingHours,data.location);
+    // console.log(req.body);
 
     Car.find().then(cars =>{
         if (!cars) {
@@ -25,13 +27,22 @@ router.post("/products",function(req,res){
             return res.render("./products/products", { cars: cars, data:data });
             }
     });
+    // Car.find({transmission:"automatic"}).then(cars =>{
+    //     if (!cars) {
+    //         return res.status(404).json({ noCarsFound: "No cars found" });
+    //       }
+    //     // Get cars
+    //     if (cars) {
+    //         return res.render("./products/products", { cars: cars, data:data });
+    //         }
+    // });
 });
 
 function calBookingHours(pd,pt,dd,dt){
 
     const pickDateTime = moment(`${pd} ${pt}`, 'YYYY-MM-DD HH:mm:ss');
     const dropDateTime = moment(`${dd} ${dt}`, 'YYYY-MM-DD HH:mm:ss');
-    console.log(pickDateTime,dropDateTime);
+    // console.log(pickDateTime,dropDateTime);
 
     // console.log(dropDateTime.diff(pickDateTime,"hours"));
    

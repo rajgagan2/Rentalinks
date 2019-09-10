@@ -29,8 +29,8 @@
             <li class="mt-4 border">
                 <p>Sorty By</p>
                 <form >
-                    <input type="radio" name="gender" value="low to high" checked>Low to high<br>
-                    <input type="radio" name="gender" value="high to low">High to low<br>
+                    <input id="pricelowtohigh" type="radio" name="gender" value="low to high" checked>Low to high<br>
+                    <input id ="pricehightolow" type="radio" name="gender" value="high to low">High to low<br>
                     <input type="radio" name="gender" value="distance">Distance  
                 </form> 
             </li>
@@ -67,20 +67,20 @@
             <li class="mt-4">
                 <p class="mb-0 px-0">TRANSMISSION</p>
                 <div class="row border">
-                    <div class="col">
+                    <div class="col" id="transmission-auto">
                         <p class="text-center sub-head mb-0 ">AUTOMATIC</p>
 
                     </div>
-                    <div class="col">
+                    <div class="col" id="transmission-manual">
                         <p class="text-center sub-head mb-0 ">MANUAL</p>
                     </div>
                 </div>
             </li>
         </ul>
     </nav>
-    <div class="container p-0">
+    <div class="container p-0 " id="wrapper">
         <% cars.forEach(function(cars){ %>
-        <div class="row border m-2">
+        <div class="row border m-2 car-container" data-weight='<%=cars.price*data.bookingHours%>'>
             <div class="col-2">
                 <img src="/images/48-512.png" alt="">
             </div>
@@ -90,7 +90,7 @@
                     <div class="col-3">
                         <p><%=cars.seats%>-Seater</p>
                     </div>
-                    <div class="col-3">
+                    <div class="col-3" id="transmission">
                         <p><%=cars.transmission%></p>
                     </div>
                     <div class="col-2">
@@ -109,7 +109,7 @@
             </div>
             <div class="col-2">
                 <p>XYZ CARS</p>
-                <p><%=cars.price*data.bookingHours%>Rs</p>
+                <p id="cost"><%=cars.price*data.bookingHours%>Rs</p>
                 <p><%=cars.excessCost%>Rs/km</p>
             </div>       
         </div>

@@ -13,8 +13,10 @@ app.use(cors());
 //routerconfig
 app.set("view engine", "ejs");
 
-//stylesheets
+
+//stylesheets and script
 app.use(express.static(__dirname + "/public"));
+app.use('/scripts', express.static(__dirname + '/scripts/'));
 
 // Bodyparser middleware
 app.use(

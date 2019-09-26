@@ -39,10 +39,10 @@
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle border">CHOOSE A CAR GROUP</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                     <li>
-                        <a href="#">HatchBack</a>
+                        <a href="#" id="hatchback">HatchBack</a>
                     </li>
                     <li>
-                        <a href="#">Sedan</a>
+                        <a href="#" id="sedan">Sedan</a>
                     </li>
                     <li>
                         <a href="#">SUV</a>
@@ -111,8 +111,10 @@
                 <p>XYZ CARS</p>
                 <p id="cost"><%=cars.price*data.bookingHours%>Rs</p>
                 <p><%=cars.excessCost%>Rs/km</p>
-            </div>       
+            </div>   
+            <p hidden   ><span id="category"><%=cars.category%></span></p>    
         </div>
+        
         <% }) %>
     </div>
     

@@ -1,5 +1,10 @@
 const transmissionAuto = document.getElementById("transmission-auto");
-const transmissionManual = document.getElementById("transmission-manual"); 
+const transmissionManual = document.getElementById("transmission-manual");
+const hatchback = document.getElementById("hatchback"); 
+const sedan = document.getElementById("sedan"); 
+
+
+//price filters
 
 $("#pricelowtohigh").on("click", function(){
     var $wrapper = $("#wrapper"),
@@ -23,6 +28,62 @@ $("#pricehightolow").on("click", function(){
         });
 });
 
+//CarType Filters
+hatchback.addEventListener("click", function(){
+    const cars = document.getElementsByClassName("car-container");
+    Array.from(cars).forEach(function(car){
+        const value = car.querySelector("#category").textContent.trim().toLowerCase();
+        console.log(value);
+        if(value!="hatchback")
+        {
+            if(car.style.display == 'none'){
+                car.style.display = '';
+            }
+            else {
+                car.style.display = 'none';
+            }
+        }
+    })
+});
+
+// sedan.addEventListener("click", function(){
+//     const cars = document.getElementsByClassName("car-container");
+//     Array.from(cars).forEach(function(car){
+//         const value = car.querySelector("#category").textContent.trim().toLowerCase();
+//         console.log(value);
+//         if(value!="sedan")
+//         {
+//             if(car.style.display == 'none'){
+//                 car.style.display = '';
+//             }
+//             else {
+//                 car.style.display = 'none';
+//             }
+//         }
+//     })
+// });
+
+sedan.addEventListener("click", carGroupFilter());
+
+function carGroupFilter(){
+    const cars = document.getElementsByClassName("car-container");
+    Array.from(cars).forEach(function(car){
+        const value = car.querySelector("#category").textContent.trim().toLowerCase();
+        console.log(value);
+        if(value!== "sedan")
+        {
+            if(car.style.display == 'none'){
+                car.style.display = '';
+            }
+            else {
+                car.style.display = 'none';
+            }
+        }
+    })
+};
+
+
+//Transmission filters
 transmissionAuto.addEventListener("click",function(){
     
     const cars = document.getElementsByClassName("car-container");
